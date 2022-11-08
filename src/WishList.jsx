@@ -1,33 +1,52 @@
 import React from 'react';
-import './App.css';
-import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import WishItem from './WishItem';
 
-function WishList({ wishes }) {
+/**
+ * Callback to run when a wish changes.
+ * @callback onUpdateWish - Callback to run when a wish changes
+ * @param {Object} updateWish - Callback to run when a wish changes
+ * @param {String} wishes[].id - Identifier for wish
+ * @param {String} wishes[].text - Text for wish 
+ */
+
+/**
+ * Manage a wish list
+ * @param {Object[]} wishes - List of wishes 
+ * @param {String} wishes[].id - Identifier for wish
+ * @param {String} wishes[].text - Text for wish
+ * @param {onUpdateWish} callback - Callback to run when a wish changes
+ * @returns HTML with a wish list
+ */
+
+function WishList({ wishes, onUpdateWish }) {
   return (
-    <div>
-      <ul className="list-group font-monospace">Tabla</ul>
-      {wishes.map(({ text, done }) => (
-
-        <WishItem wish={{ text, done }} key={`wishItem-${uuidv4()}`} />
-
+    <ul className="list-group">
+      {wishes.map(({ id, text, done }) => (
+        <WishItem wish={{ id, text, done }} 
+        key={`wishItem-${id}`} 
+        onChangeWish={(updateWish) => {
+            onUpdateWish(updateWish);
+        }} />
       ))}
-    </div>
+    </ul>
   );
 }
 
 WishList.propTypes = {
   wishes: PropTypes.arrayOf(
     PropTypes.shape({
+      id: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
       done: PropTypes.bool.isRequired,
     }),
   ),
+  onUpdateWish: PropTypes.func
 };
 
 WishList.defaultProps = {
   wishes: [],
+  onUpdateWish: () => {}
 };
 
 export default WishList;

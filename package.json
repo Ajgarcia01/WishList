@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint --fix src/**/*.{js,jsx}",
     "format": "prettier --write src/**/*.{html,css,js,jsx,json}",
+    "doc": "jsdoc -d ./doc ./src",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "eslint": "^8.25.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-react": "^7.31.10",
+    "jsdoc": "^3.6.11",
     "prettier": "^2.7.1",
     "vite": "^3.1.0"
   }
