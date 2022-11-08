@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import WishItem from './WishItem';
 
+
 /**
  * Callback to run when a wish changes.
  * @callback onUpdateWish - Callback to run when a wish changes
@@ -21,15 +22,20 @@ import WishItem from './WishItem';
 
 function WishList({ wishes, onUpdateWish }) {
   return (
-    <ul className="list-group">
-      {wishes.map(({ id, text, done }) => (
-        <WishItem wish={{ id, text, done }} 
-        key={`wishItem-${id}`} 
-        onChangeWish={(updateWish) => {
-            onUpdateWish(updateWish);
-        }} />
-      ))}
-    </ul>
+        <table>
+            <tr><th>Nombre</th></tr>
+          
+            <tr className=""> {wishes.map(({ id, text, done }) => (
+                    <><><td><WishItem wish={{ id, text, done }} key={`wishItem-${id}`} onChangeWish={(updateWish) => { onUpdateWish(updateWish); } } /></td>
+                <td><button>Editar</button></td></>
+                <td><button>Eliminar</button></td></>
+                    
+                ))}
+            </tr> 
+            
+          
+        </table>
+   
   );
 }
 

@@ -17,8 +17,6 @@ function WishItem({ wish, onChangeWish }) {
         }}
       />
       <label className={ClassNames({ 'text-decoration-line-through': wish.done })} htmlFor={wish.id}>
-        {wish.id}
-        ------
         {wish.text}
       </label>
     </li>
