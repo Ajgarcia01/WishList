@@ -1,48 +1,51 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
 import { v4 as Uuidv4 } from 'uuid';
 import WishList from './WishList';
 import WishInput from './WishInput';
+import { Nabvar } from './Nabvar';
 
-const initialWishes = [
-  { id: Uuidv4(), text: 'Aprender React', done: false },
-  { id: Uuidv4(), text: 'Da de alta a los alumnos', done: true },
-  { id: Uuidv4(), text: 'Preparar apuntes', done: true },
-  { id: Uuidv4(), text: 'Desayunar', done: true },
-];
 
+
+
+
+
+
+const students = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+const initialWishes = students;
 
 /**
  * Manage a wish list
  * @returns HTML with a wish list
  */
 function App() {
-  const [wishes, setWishes] = useState(initialWishes);
-  return (
-    <div className="container-fluid">
-      <h1>My WishList</h1>
-      
-      <WishInput onNewWish={(newwish) => {
-        setWishes([...wishes, newwish]);
-      }}
-      />
-      <WishList wishes={wishes} onUpdateWish={(updateWish) => {
+   
+   const [wishes,setWishes] = useState(students)
 
-            setWishes(wishes.map(wish => 
-                (wish.id == updateWish.id)? updateWish:wish
-            ));
-      }} 
-     /*
-        const UpdateWishes = [...wishes];
-        const modifyWish = UpdateWishes.find(wish => wish.id === updateWish.id);
-        modifyWish.text=  updateWish.text;
-        modifyWish.done= updateWish.done;
-        setWishes(UpdateWishes);
-        */
-      />
-    </div>
+  return (
+    <><Nabvar/>
+    <div className="container app">
+    
+
+   <h1 className='text-title'>My WishList</h1>
+   
+   <WishInput onNewWish={(newwish) => {
+     setWishes([...wishes, newwish]);
+     initialWishes.push(newwish);
+     localStorage.setItem('wishesLocalStorage', JSON.stringify(initialWishes));
+   }}
+   />
+   <WishList wishes={wishes} onUpdateWish={(updateWish) => {
+
+setWishes(wishes.map(wish => 
+    (wish.id == updateWish.id)? updateWish:wish
+    
+));
+}} 
+/>
+ </div>
+ </>
   );
 }
 

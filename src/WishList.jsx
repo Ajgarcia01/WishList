@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WishItem from './WishItem';
+import Table from 'react-bootstrap/Table';
+import './App.css';
+import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
+
 
 
 /**
@@ -21,21 +26,40 @@ import WishItem from './WishItem';
  */
 
 function WishList({ wishes, onUpdateWish }) {
-  return (
-        <table>
-            <tr><th>Nombre</th></tr>
-          
-            <tr className=""> {wishes.map(({ id, text, done }) => (
-                    <><><td><WishItem wish={{ id, text, done }} key={`wishItem-${id}`} onChangeWish={(updateWish) => { onUpdateWish(updateWish); } } /></td>
-                <td><button>Editar</button></td></>
-                <td><button>Eliminar</button></td></>
-                    
-                ))}
-            </tr> 
-            
-          
-        </table>
    
+
+   //localStorage.setItem('wishesLocalStorage', JSON.stringify(initialWishes) );
+
+    //console.log(wishes);
+   
+    /*
+    function hide(e){
+        e.currentTarget.
+        console.log(e.currentTarget);
+        // Cuando esta función es usada como un controlador de evento: this === e.currentTarget
+      }
+    */
+
+     
+
+
+  return (
+    <div>      
+    <Table striped bordered hover size="sm" className='tablewish'>
+    {wishes.map(({ id, text, done }) => (
+      <><thead>
+            <tr>
+                <th>Name of wish</th>
+            </tr>
+        </thead><tbody>
+                <tr className='table'>
+                    <td><WishItem wish={{ id, text, done }} key={`wishItem-${id}`} onChangeWish={(updateWish) => { onUpdateWish(updateWish); } } /></td>
+                </tr>
+            </tbody></>
+       ))}
+    </Table>
+    </div>
+            
   );
 }
 
