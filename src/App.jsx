@@ -1,51 +1,49 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import { v4 as Uuidv4 } from 'uuid';
 import WishList from './WishList';
 import WishInput from './WishInput';
 import { Nabvar } from './Nabvar';
-
-
-
-
-
-
-
-const students = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
-const initialWishes = students;
 
 /**
  * Manage a wish list
  * @returns HTML with a wish list
  */
 function App() {
-   
+    const [inputText, setInputText] = useState("");
+    let inputHandler = (e) => {
+      //convert input text to lower case
+      var lowerCase = e.target.value.toLowerCase();
+      setInputText(lowerCase);
+    };
+    const students = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
    const [wishes,setWishes] = useState(students)
 
   return (
-    <><Nabvar/>
-    <div className="container app">
-    
-
-   <h1 className='text-title'>My WishList</h1>
-   
-   <WishInput onNewWish={(newwish) => {
-     setWishes([...wishes, newwish]);
-     initialWishes.push(newwish);
-     localStorage.setItem('wishesLocalStorage', JSON.stringify(initialWishes));
-   }}
-   />
-   <WishList wishes={wishes} onUpdateWish={(updateWish) => {
-
-setWishes(wishes.map(wish => 
-    (wish.id == updateWish.id)? updateWish:wish
-    
-));
-}} 
-/>
- </div>
- </>
+    <><div className="search">
+      </div><><Nabvar />
+              <div className="container app">
+                  <h1 className='text-title'>My WishList</h1>
+                  <WishInput onChange={inputHandler} onNewWish={(newwish) => {
+                        setWishes([...wishes, newwish]);
+                        wishes.push(newwish);
+                      localStorage.setItem('wishesLocalStorage', JSON.stringify(wishes));
+                      
+                      
+                  } } /> <br />
+                   <WishList input={inputText}
+        onUpdateWish={(updatedWish) => {
+          const updatedWishes = [...wishes];
+          const modifyWish = updatedWishes.find(
+            (wish) => wish.id === updatedWish.id,
+          );
+          modifyWish.done = updatedWish.done;
+          setWishes(updatedWishes);
+        }}
+      />
+              </div>
+             
+              </></>
   );
 }
 

@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import WishItem from './WishItem';
 import Table from 'react-bootstrap/Table';
 import './App.css';
-import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
 
 
 
@@ -25,43 +23,43 @@ import { useState } from 'react';
  * @returns HTML with a wish list
  */
 
-function WishList({ wishes, onUpdateWish }) {
+function WishList(props, onUpdateWish ) {
+    const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+
+
    
-
-   //localStorage.setItem('wishesLocalStorage', JSON.stringify(initialWishes) );
-
-    //console.log(wishes);
-   
-    /*
-    function hide(e){
-        e.currentTarget.
-        console.log(e.currentTarget);
-        // Cuando esta función es usada como un controlador de evento: this === e.currentTarget
-      }
-    */
-
-     
-
-
-  return (
-    <div>      
-    <Table striped bordered hover size="sm" className='tablewish'>
-    {wishes.map(({ id, text, done }) => (
-      <><thead>
-            <tr>
-                <th>Name of wish</th>
-            </tr>
-        </thead><tbody>
-                <tr className='table'>
-                    <td><WishItem wish={{ id, text, done }} key={`wishItem-${id}`} onChangeWish={(updateWish) => { onUpdateWish(updateWish); } } /></td>
+    const filteredData = wishes.filter((el) => {
+        if (props.input === '') {
+            return el;
+        } else {
+            return el.text.toLowerCase().includes(props.input)
+        }
+    })
+    return (
+        <div>      
+        <Table striped bordered hover size="sm" className='tablewish'>
+        {filteredData.map(({ id, text, done }) => (
+          <><thead>
+                <tr>
+                    <th>Name of wish</th>
                 </tr>
-            </tbody></>
-       ))}
-    </Table>
-    </div>
-            
-  );
+            </thead><tbody>
+                    <tr className='table'>
+                        <td><WishItem wish={{ id, text, done }} key={`wishItem-${id}`} onChangeWish={(updatedWish) => {onUpdateWish(updatedWish);}} /></td>
+                    </tr>
+                </tbody></>
+           ))}
+        </Table>
+        </div>
+    );
+
 }
+
+/*
+  
+
+*/
+
 
 WishList.propTypes = {
   wishes: PropTypes.arrayOf(

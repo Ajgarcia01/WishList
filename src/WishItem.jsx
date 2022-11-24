@@ -12,60 +12,71 @@ import Form from 'react-bootstrap/Form';
 function WishItem({ wish, onChangeWish }) {
     const inputText = useRef();
     const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
-    //const [item, removeItem] = useState('');
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const saveItem = () => onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
-    const save = () => {
-      saveItem();
-      handleClose();
-     
-    };
+    
+    const deleteItem = (data) => {
 
-
-    const [filteredList, setFilteredList] = useState(wishes);
-    const [removeItem, setRemoveItem] = useState('','');
-
-    const handleClick = (data) => {
-         //const filterItem = wishes.filter((item) => item.id===data);
-         //setFilteredList(filterItem);
-        
             for (var i =0; i < wishes.length; i++)
             if (wishes[i].id === data) {
                 wishes.splice(i,1);
                 break;
             }   
-
-         console.log('antes de guardar');
          localStorage.setItem('wishesLocalStorage', JSON.stringify(wishes));
-         console.log('despues de guardar');
+         window.location.reload()
          //console.log(filterItem);
     }
+
+
+    const editItem = (data,text) => {
+        console.log(text);
+        for (var i =0; i < wishes.length; i++){
+            if (wishes[i].id === data) {
+                wishes[i].text=text
+                break;
+            } 
+        }
+       localStorage.setItem('wishesLocalStorage', JSON.stringify(wishes));
+       window.location.reload();
+     
+}
 
 
 
 
   const inputWishItem = useRef();
   return (
-    <><><li className="list-group-item wishItem ">
-          <input
-              type="checkbox"
-              defaultChecked={wish.done}
-              ref={inputWishItem}
-              id={wish.id}
-              onChange={(event) => {
-                  onChangeWish({ id: wish.id, text: wish.text, done: event.target.checked });
-              } } />
-          <label className={ClassNames({ 'text-decoration-line-through': wish.done }, 'textitem')} htmlFor={wish.id}>
-              {wish.text}
-          </label>
-      </li><td><center><Button variant="primary" onClick={handleShow}>Edit</Button></center></td>
-      <td><center><Button variant="danger" onClick={((e) => handleClick(wish.id))}>Delete</Button></center></td></>
-      
-      <Modal show={show} onHide={handleClose}>
+    <><table>
+        <thead>
+            <tr>
+        <td className="list-group-item wishItem ">
+              <input
+              className='inputWish'
+                  type="checkbox"
+                  defaultChecked={wish.done}
+                  ref={inputWishItem}
+                  id={wish.id}
+                  onChange={(event) => {
+                    onChangeWish({
+                      id: wish.id,
+                      done: event.target.checked,
+                      text: wish.text,
+                    });
+                  }} />
+              <label className={ClassNames({ 'text-decoration-line-through': wish.done }, 'textitem')} htmlFor={wish.id}>
+                   {wish.text}
+              </label>
+          </td><td><center><Button className='butttonEdit' variant="primary" onClick={handleShow}>Edit</Button></center></td>
+          <td><center><Button variant="danger" onClick={((e) => deleteItem(wish.id))}>Delete</Button></center></td>
+                  </tr>
+            </thead>
+        </table>
+        
+        <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                  <Modal.Title>Add Wish</Modal.Title>
+                  <Modal.Title>Edit Wish</Modal.Title>
               </Modal.Header>
               <Modal.Body>
                   <p>Introduce a new value or modify the current value☺️</p>
@@ -78,10 +89,9 @@ function WishItem({ wish, onChangeWish }) {
                       defaultValue={wish.text}
                       onKeyUp={(event) => {
                           if (event.key === 'Enter' && inputText.current.value.length > 0) {
-                              onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
-                              inputText.current.value = '';
-                              handleClose();
-
+                              editItem(wish.id, inputText.current.value);
+                              //inputText.current.value = '';
+                              //handleClose();
                           }
                       } } />
               </Modal.Body>
@@ -89,7 +99,7 @@ function WishItem({ wish, onChangeWish }) {
                   <Button variant="secondary" onClick={handleClose}>
                       Close
                   </Button>
-                  <Button variant="primary" onClick={save}>
+                  <Button variant="primary" onClick={((e) => editItem(wish.id, inputText.current.value))}>
                       Save Changes
                   </Button>
               </Modal.Footer>
@@ -108,7 +118,7 @@ WishItem.propTypes = {
 };
 
 WishItem.defaultProps = {
-  wish: { text: '', done: false },
+    wishItem: { id: '', done: false, text: '' },
   onChangeWish: () => {},
 
 };
