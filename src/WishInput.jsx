@@ -1,15 +1,15 @@
-import React, { useRef, useState} from 'react';
-import Alert from 'react-bootstrap/Alert';
+import React, { useEffect, useRef, useState} from 'react';
 import { v4 as Uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Modal from 'react-bootstrap/Modal';
+import './App.css';
 
 
 function WishInput({ onChange,onNewWish }) {
-  const inputText = useRef();
+    const inputText = useRef();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -17,10 +17,10 @@ function WishInput({ onChange,onNewWish }) {
   const save = () => {
     saveItem();
     handleClose();
+    //window.location.reload();
    
   };
 
-const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 
 
   return (
@@ -28,7 +28,7 @@ const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 <InputGroup className="">
 <form className="form">
     <label className="label" htmlFor="search">
-        <input className="input" type="text" required="" placeholder="Search twitter" id="search" onChange={(onChange)} label="Search"/>
+        <input className="input" type="text" required="" placeholder="Search a item" id="search" onChange={(onChange)} label="Search"/>
         <div className="fancy-bg"></div>
         <div className="search">
             <svg viewBox="0 0 24 24" aria-hidden="true" className="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
@@ -38,7 +38,7 @@ const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
             </svg>
         </div>
         <Button onClick={handleShow} className="close-btn" variant='link' type="reset">
-        <i><img src="./src/assets/add.png" height={'40px'} width={'40px'} alt="" /></i>
+        <i><img src="https://www.freeiconspng.com/uploads/add-icon--icon-search-engine-1.png" height={'30px'} width={'30px'} alt="" /></i>
         </Button>
     </label>
 </form>
@@ -61,9 +61,11 @@ const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
                   type="text"
                   onKeyUp={(event) => {
                       if (event.key === 'Enter' && inputText.current.value.length > 0) {
-                        onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
+                        onNewWish({ id: Uuidv4(), text: inputText.current.value });
+                        console.log(`New Wish: ${inputText.current.value}`);
                         inputText.current.value = '';
                         handleClose();
+                        //window.location.reload();
                         
                       }
                   } }/>

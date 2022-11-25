@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
-import ClassNames from 'classnames';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
@@ -43,67 +42,66 @@ function WishItem({ wish, onChangeWish }) {
      
 }
 
-
-
-
-  const inputWishItem = useRef();
   return (
-    <><table>
-        <thead>
-            <tr>
-        <td className="list-group-item wishItem ">
-              <input
-              className='inputWish'
-                  type="checkbox"
-                  defaultChecked={wish.done}
-                  ref={inputWishItem}
-                  id={wish.id}
-                  onChange={(event) => {
-                    onChangeWish({
-                      id: wish.id,
-                      done: event.target.checked,
-                      text: wish.text,
-                    });
-                  }} />
-              <label className={ClassNames({ 'text-decoration-line-through': wish.done }, 'textitem')} htmlFor={wish.id}>
-                   {wish.text}
+    <><table striped bordered hover size="sm" className='tableItem' >
+    <thead >
+
+        <tr>
+    <td className="list-group-item wishItem ">
+    <label className="container">
+          <input className='containerinput'
+              type="checkbox"
+              defaultChecked={wish.done}
+              ref={inputText}
+              id={wish.id}
+              onChange={(event) => {
+                onChangeWish({
+                  id: wish.id,
+                  done: event.target.checked,
+                  text: wish.text,
+                });
+              }} /><div className="checkmark"></div>
               </label>
-          </td><td><center><Button className='butttonEdit' variant="primary" onClick={handleShow}>Edit</Button></center></td>
-          <td><center><Button variant="danger" onClick={((e) => deleteItem(wish.id))}>Delete</Button></center></td>
-                  </tr>
-            </thead>
-        </table>
-        
-        <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                  <Modal.Title>Edit Wish</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                  <p>Introduce a new value or modify the current value☺️</p>
-                  <Form.Control
-                      placeholder="Your wish"
-                      aria-describedby="basic-addon2"
-                      className="form-control"
-                      ref={inputText}
-                      type="text"
-                      defaultValue={wish.text}
-                      onKeyUp={(event) => {
-                          if (event.key === 'Enter' && inputText.current.value.length > 0) {
-                              editItem(wish.id, inputText.current.value);
-                              //inputText.current.value = '';
-                              //handleClose();
-                          }
-                      } } />
-              </Modal.Body>
-              <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                      Close
-                  </Button>
-                  <Button variant="primary" onClick={((e) => editItem(wish.id, inputText.current.value))}>
-                      Save Changes
-                  </Button>
-              </Modal.Footer>
-          </Modal></>
+      </td>
+      <td><label  htmlFor={wish.id} className='textWish'>
+               {wish.text}
+          </label></td>
+      <td><center><Button className='butttonEdit' variant="primary" onClick={handleShow}>Edit</Button></center></td>
+      <td><center><Button variant="danger" onClick={((e) => deleteItem(wish.id))}>Delete</Button></center></td>
+              </tr>
+        </thead>
+    </table>
+    
+    <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+              <Modal.Title>Edit Wish</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+              <p>Introduce a new value or modify the current value☺️</p>
+              <Form.Control
+                  placeholder="Your wish"
+                  aria-describedby="basic-addon2"
+                  className="form-control"
+                  ref={inputText}
+                  type="text"
+                  defaultValue={wish.text}
+                  onKeyUp={(event) => {
+                      if (event.key === 'Enter' && inputText.current.value.length > 0) {
+                          editItem(wish.id, inputText.current.value);
+                          //inputText.current.value = '';
+                          //handleClose();
+                      }
+                  } } />
+          </Modal.Body>
+          <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                  Close
+              </Button>
+              <Button variant="primary" onClick={((e) => editItem(wish.id, inputText.current.value))}>
+                  Save Changes
+              </Button>
+          </Modal.Footer>
+      </Modal></>
   );
 }
 

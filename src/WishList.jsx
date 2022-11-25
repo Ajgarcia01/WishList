@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import WishItem from './WishItem';
 import Table from 'react-bootstrap/Table';
@@ -23,29 +23,64 @@ import './App.css';
  * @returns HTML with a wish list
  */
 
-function WishList(props, onUpdateWish ) {
-    const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+function WishList({props, ChangeWish }) {
+    
+    const wi = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 
+    const [fruitItems, setFruitItems] = React.useState(wi)
+    const dragItem = React.useRef(null)
+	const dragOverItem = React.useRef(null)
 
-   
-    const filteredData = wishes.filter((el) => {
+    const filteredData = wi.filter((el) => {
         if (props.input === '') {
-            return el;
         } else {
-            return el.text.toLowerCase().includes(props.input)
+            return el.text.toLowerCase().includes(props)
         }
-    })
+    });
+
+    //const handle drag sorting
+	const handleSort = () => {
+		//duplicate items
+		let _fruitItems = [...filteredData]
+
+		//remove and save the dragged item content
+		const draggedItemContent = _fruitItems.splice(dragItem.current, 1)[0]
+
+		//switch the position
+		_fruitItems.splice(dragOverItem.current, 0, draggedItemContent)
+
+		//reset the position ref
+		dragItem.current = null
+		dragOverItem.current = null
+
+		//update the actual array
+		setFruitItems(_fruitItems)
+        localStorage.setItem('wishesLocalStorage', JSON.stringify(_fruitItems));
+
+	}
+
+    
     return (
+    
         <div>      
-        <Table striped bordered hover size="sm" className='tablewish'>
-        {filteredData.map(({ id, text, done }) => (
+        <Table striped bordered hover size="sm" className='table'>
+        {filteredData.map(({ id, text, done },index) => (
           <><thead>
                 <tr>
-                    <th>Name of wish</th>
+                    <th className='columnaWish'>A Wish </th>
                 </tr>
             </thead><tbody>
-                    <tr className='table'>
-                        <td><WishItem wish={{ id, text, done }} key={`wishItem-${id}`} onChangeWish={(updatedWish) => {onUpdateWish(updatedWish);}} /></td>
+                    <tr className=''>
+                        <td key={index} draggable
+						onDragStart={(e) => (dragItem.current = index)}
+						onDragEnter={(e) => (dragOverItem.current = index)}
+						onDragEnd={handleSort}
+						onDragOver={(e) => e.preventDefault()}>
+                            <i className="fa-solid fa-bars"></i>
+                            <WishItem wish={{ id, text, done }} key={`wishItem-${id}`} 
+				onChangeWish={(updatedWish) => {
+                ChangeWish(updatedWish);
+            }} /></td>
                     </tr>
                 </tbody></>
            ))}

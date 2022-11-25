@@ -10,6 +10,15 @@ body{
     
 }
 
+
+
+
+.textWish{
+    color: white;
+    font-size: 25px;
+    margin-right: 50px;
+
+}
 .text-title{
     color: white;
 }
@@ -17,22 +26,34 @@ body{
 .logovar{
     margin-top: 7px;
     margin-bottom: 7px;
-    margin-left: 550px;
+    margin-left: 585px;
 
 }
 
 .butttonEdit{
     margin-right: 0px;
-    margin-left: 900px;
+
+}
+.columnaWish{
+    text-align: center;
 }
 
-.inputWish{
-    margin-right: 30px;
+
+.tableItem{
+    overflow-x:auto;
+    color: #1b9bee;
+    margin-left: 200px;
 }
 
-.tablewish{
+.tableItem td{
+    margin-right: 50px;
+}
+
+.table{
     color: white;
+    overflow-x:auto
 }
+
 
 .app{
     margin-top: 50px;
@@ -44,6 +65,11 @@ body{
     padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
+
+}
+
+.prueba{
+    background-color: green;
 }
 
 .textitem{
@@ -162,13 +188,163 @@ body{
     visibility: hidden;
   }
   
-  
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
-  }
 
+  /* Hide the default checkbox */
+
+  .containerinput {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+   }
+
+   .container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    font-size: 20px;
+    user-select: none;
+   }
+   
+   /* Create a custom checkbox */
+   .checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 0px 17px #c7bbb8;
+   }
+   
+   /* When the checkbox is checked, add a blue background */
+   .container input:checked ~ .checkmark {
+    background-color: #0095ff;
+    box-shadow: 0px 0px 17px #00d5ff;
+   }
+   
+   /* Create the checkmark/indicator (hidden when not checked) */
+   .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+   }
+   
+   /* Show the checkmark when checked */
+   .container input:checked ~ .checkmark:after {
+    display: block;
+   }
+   
+   /* Style the checkmark/indicator */
+   .container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid rgb(233, 222, 222);
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+   }
   
+
+
+   .button {
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    background: #0095ff;
+    color: white;
+    font-family: inherit;
+    text-align: center;
+    font-size: 13px;
+    box-shadow: 0px 14px 56px -11px #00d5ff;
+    width: 10em;
+    padding: 1em;
+    transition: all 0.4s;
+    cursor: pointer;
+   }
+   
+   .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+   }
+   
+   .button span:after {
+    content: 'Thank :)';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.3s;
+   }
+   
+   .button:hover span {
+    padding-right: 3.55em;
+   }
+   
+   .button:hover span:after {
+    opacity: 4;
+    right: 0;
+   }
+
+
+
+   .spinner {
+    margin-top: 450px;
+    margin-left: 600px;
+    height: 50px;
+    width: max-content;
+    font-size: 80px;
+    font-weight: 600;
+    font-family: monospace;
+    letter-spacing: 1em;
+    color: #00d5ff;
+    filter: drop-shadow(0 0 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   .spinner span {
+    animation: loading6454 1.75s ease infinite;
+   }
+   
+   .spinner span:nth-child(2) {
+    animation-delay: 0.25s;
+   }
+   
+   .spinner span:nth-child(3) {
+    animation-delay: 0.5s;
+   }
+   
+   .spinner span:nth-child(4) {
+    animation-delay: 0.75s;
+   }
+   
+   .spinner span:nth-child(5) {
+    animation-delay: 1s;
+   }
+   
+   .spinner span:nth-child(6) {
+    animation-delay: 1.25s;
+   }
+   
+   .spinner span:nth-child(7) {
+    animation-delay: 1.5s;
+   }
+   
+   @keyframes loading6454 {
+    0%, 100% {
+     transform: translateY(0);
+    }
+   
+    50% {
+     transform: translateY(-10px);
+    }
+   }
+
