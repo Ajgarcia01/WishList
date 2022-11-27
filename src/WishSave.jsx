@@ -12,7 +12,7 @@ import './App.css';
  * @param {onWishesSave} callback - Callback to run when a user clicks it.
  */
 function WishSave({ onWishesSave }) {
-  return <button className='button'  onClick={onWishesSave}><span>Save</span></button>;
+  return <button className="button" onClick={onWishesSave}><span>Save</span></button>;
 }
 
 WishSave.propTypes = {
