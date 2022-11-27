@@ -7,6 +7,18 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Modal from 'react-bootstrap/Modal';
 import './App.css';
 
+/**
+ * Callback para notificar cambios en el input (barra de búsqueda en este caso).
+ * @callback onChange - Callback para notificar cambios en el input y establecer los valores introducidos
+
+ */
+
+/**
+ * Callback para añadir un nuevo deseo
+ * @param {Function} onNewWish - Callback para añadir un nuevo deseo
+ */
+
+
 function WishInput({ onChange, onNewWish }) {
   const inputText = useRef();
   const [show, setShow] = useState(false);

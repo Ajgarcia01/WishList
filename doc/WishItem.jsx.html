@@ -1,4 +1,32 @@
-import React, { useRef, useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: WishItem.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: WishItem.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useRef, useState } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
@@ -52,7 +80,7 @@ function WishItem({ wish, onChangeWish }) {
  * @param {String} data - texto editado del deseo 
  */
   const deleteItem = (data) => {
-    for (let i = 0; i < wishes.length; i += 1) {
+    for (let i = 0; i &lt; wishes.length; i += 1) {
       if (wishes[i].id === data) {
         wishes.splice(i, 1);
         break;
@@ -71,7 +99,7 @@ function WishItem({ wish, onChangeWish }) {
  */
   const editItem = (data, text) => {
     console.log(text);
-    for (let i = 0; i < wishes.length; i += 1) {
+    for (let i = 0; i &lt; wishes.length; i += 1) {
       if (wishes[i].id === data) {
         wishes[i].text = text;
         break;
@@ -82,23 +110,23 @@ function WishItem({ wish, onChangeWish }) {
   };
 
   return (
-    <>
-      <table size="sm" className="tableItem">
-        <thead>
-          <tr>
-            <td>
-              <div className="menuIcon">
-                <i>
-                  <img
+    &lt;>
+      &lt;table size="sm" className="tableItem">
+        &lt;thead>
+          &lt;tr>
+            &lt;td>
+              &lt;div className="menuIcon">
+                &lt;i>
+                  &lt;img
                     src="https://www.svgrepo.com/show/18576/menu.svg"
                     alt=""
                   />
-                </i>
-              </div>
-            </td>
-            <td className="list-group-item wishItem ">
-              <label className="container">
-                <input
+                &lt;/i>
+              &lt;/div>
+            &lt;/td>
+            &lt;td className="list-group-item wishItem ">
+              &lt;label className="container">
+                &lt;input
                   className="containerinput"
                   type="checkbox"
                   defaultChecked={wish.done}
@@ -112,46 +140,46 @@ function WishItem({ wish, onChangeWish }) {
                     });
                   }}
                 />
-                <div className="checkmark" />
-              </label>
-            </td>
-            <td>
-              <label htmlFor={wish.id} className="textWish">
+                &lt;div className="checkmark" />
+              &lt;/label>
+            &lt;/td>
+            &lt;td>
+              &lt;label htmlFor={wish.id} className="textWish">
                 {wish.text}
-              </label>
-            </td>
-            <td>
-              <center>
-                <Button
+              &lt;/label>
+            &lt;/td>
+            &lt;td>
+              &lt;center>
+                &lt;Button
                   className="butttonEdit"
                   variant="primary"
                   onClick={handleShow}
                 >
                   Edit
-                </Button>
-              </center>
-            </td>
-            <td>
-              <center>
-                <Button
+                &lt;/Button>
+              &lt;/center>
+            &lt;/td>
+            &lt;td>
+              &lt;center>
+                &lt;Button
                   variant="danger"
                   onClick={(e) => deleteItem(wish.id, e)}
                 >
                   Delete
-                </Button>
-              </center>
-            </td>
-          </tr>
-        </thead>
-      </table>
+                &lt;/Button>
+              &lt;/center>
+            &lt;/td>
+          &lt;/tr>
+        &lt;/thead>
+      &lt;/table>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar Deseo</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Introduce un nuevo valor o modifica el valor actual☺️</p>
-          <Form.Control
+      &lt;Modal show={show} onHide={handleClose}>
+        &lt;Modal.Header closeButton>
+          &lt;Modal.Title>Editar Deseo&lt;/Modal.Title>
+        &lt;/Modal.Header>
+        &lt;Modal.Body>
+          &lt;p>Introduce un nuevo valor o modifica el valor actual☺️&lt;/p>
+          &lt;Form.Control
             placeholder="Your wish"
             aria-describedby="basic-addon2"
             className="form-control"
@@ -159,27 +187,27 @@ function WishItem({ wish, onChangeWish }) {
             type="text"
             defaultValue={wish.text}
             onKeyUp={(event) => {
-              if (event.key === 'Enter' && inputText.current.value.length > 0) {
+              if (event.key === 'Enter' &amp;&amp; inputText.current.value.length > 0) {
                 editItem(wish.id, inputText.current.value);
                 // inputText.current.value = '';
                 // handleClose();
               }
             }}
           />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        &lt;/Modal.Body>
+        &lt;Modal.Footer>
+          &lt;Button variant="secondary" onClick={handleClose}>
             Cerrar
-          </Button>
-          <Button
+          &lt;/Button>
+          &lt;Button
             variant="primary"
             onClick={(e) => editItem(wish.id, inputText.current.value, e)}
           >
             Guardar Cambios
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+          &lt;/Button>
+        &lt;/Modal.Footer>
+      &lt;/Modal>
+    &lt;/>
   );
 }
 
@@ -198,3 +226,26 @@ WishItem.defaultProps = {
 };
 
 export default WishItem;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Nabvar">Nabvar</a></li><li><a href="global.html#WishInput">WishInput</a></li><li><a href="global.html#WishList">WishList</a></li><li><a href="global.html#WishSave">WishSave</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Nov 28 2022 00:08:25 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

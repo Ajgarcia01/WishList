@@ -2,6 +2,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 
+
+/**
+ * Controla la barra de navegación de la app
+ * @returns un html renderizado para mostrar la barra de navegación con el logo de la app
+ */
 export function Nabvar() {
   return (
     <Navbar bg="dark" variant="dark">

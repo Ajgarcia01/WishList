@@ -2,29 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 
-/**
- * Callback to run when a user clicks it.
- * @callback onWishesSave - Callback to run when a wish changes.
- */
 
 /**
- * Render a button action.
- * @param {onWishesSave} callback - Callback to run when a user clicks it.
+ * Mostrar un botón
+ * @param {Save} callback - Callback llamada cuando el usuario hace click en el botón.
  */
-function WishSave({ onWishesSave }) {
+function WishSave({ Save }) {
   return (
-    <button className="button" type="button" onClick={onWishesSave}>
+    <button className="button" type="button" onClick={Save}>
       <span>Guardar</span>
     </button>
   );
 }
 
 WishSave.propTypes = {
-  onWishesSave: PropTypes.func,
+    Save: PropTypes.func,
 };
 
 WishSave.defaultProps = {
-  onWishesSave: () => {},
+    Save: () => {},
 };
 
 export default WishSave;

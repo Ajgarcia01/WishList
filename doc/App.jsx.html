@@ -26,50 +26,123 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
-import { v4 as Uuidv4 } from 'uuid';
 import WishList from './WishList';
 import WishInput from './WishInput';
-
-const initialWishes = [
-  { id: Uuidv4(), text: 'Aprender React', done: false },
-  { id: Uuidv4(), text: 'Da de alta a los alumnos', done: true },
-  { id: Uuidv4(), text: 'Preparar apuntes', done: true },
-  { id: Uuidv4(), text: 'Desayunar', done: true },
-];
-
+import { Nabvar } from './Nabvar';
+import WishSave from './WishSave';
 
 /**
  * Manage a wish list
  * @returns HTML with a wish list
  */
 function App() {
-  const [wishes, setWishes] = useState(initialWishes);
-  return (
-    &lt;div className="container-fluid">
-      &lt;h1>My WishList&lt;/h1>
-      
-      &lt;WishInput onNewWish={(newwish) => {
-        setWishes([...wishes, newwish]);
-      }}
-      />
-      &lt;WishList wishes={wishes} onUpdateWish={(updateWish) => {
+/**
+ * Controla los estados que controlan la barra de búsqueda (valores proporcionados)
+ * @returns el valor seteado, que sería el introducido en el input de la barra de búsqueda
+ */
+  const [inputText, setInputText] = useState('');
 
-            setWishes(wishes.map(wish => 
-                (wish.id == updateWish.id)? updateWish:wish
-            ));
-      }} 
-     /*
-        const UpdateWishes = [...wishes];
-        const modifyWish = UpdateWishes.find(wish => wish.id === updateWish.id);
-        modifyWish.text=  updateWish.text;
-        modifyWish.done= updateWish.done;
-        setWishes(UpdateWishes);
-        */
-      />
+  /**
+ * Llamada para cuando el evento recibe un cambio.
+ * @callback e - Llamada para cuando e cambia, pasar la información recibida a minúscula y setearlo en el estado.
+ * @param {e} callback - Llamada para cuando e cambia
+ */
+  const inputHandler = (e) => {
+    const lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
+/**
+ * Controla la lista de deseos
+ * @returns JSON con la lista de deseos almacenadas en el LocalStorage
+ */
+  const initialWishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+
+  /**
+ * Controla la lista de deseos con estados
+ * @returns JSON con la lista de deseos almacenadas en el LocalStorage
+ */
+  const [appWishes, setWishes] = useState(initialWishes);
+
+  /**
+ * Controla el loading de la app
+ * @returns un loading cada vez que loading es === (true)
+ */
+  const [loading, setLoading] = useState(false);
+
+/**
+ * Controla el loading (para mostrarlo), setear el estado del loading
+ * @returns loading===true con una duración de 200ms
+ */
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 200);
+  }, []);
+
+  return (
+    &lt;div>
+      &lt;div>
+        {loading ? (
+          &lt;div className="spinner">
+            &lt;span>L&lt;/span>
+            &lt;span>O&lt;/span>
+            &lt;span>A&lt;/span>
+            &lt;span>D&lt;/span>
+            &lt;span>I&lt;/span>
+            &lt;span>N&lt;/span>
+            &lt;span>G&lt;/span>
+          &lt;/div>
+        ) : (
+          &lt;div>
+            &lt;div className="search" />
+            &lt;Nabvar />
+            &lt;div className="container app">
+              &lt;center>
+                &lt;WishSave
+                  Save={() => {
+                    localStorage.setItem(
+                      'wishesLocalStorage',
+                      JSON.stringify(appWishes),
+                    );
+                    window.location.reload();
+                  }}
+                />
+              &lt;/center>
+              &lt;h1 className="text-title">My WishList&lt;/h1>
+              &lt;WishInput
+                onChange={inputHandler}
+                onNewWish={(newwish) => {
+                  setWishes([...initialWishes, newwish]);
+                  initialWishes.push(newwish);
+                  localStorage.setItem(
+                    'wishesLocalStorage',
+                    JSON.stringify(initialWishes),
+                  );
+                }}
+              />
+              {' '}
+              &lt;br />
+              &lt;WishList
+                props={inputText}
+                ChangeWish={(updatedWish) => {
+                  const updatedAppWishes = [...appWishes];
+                  const modifyWish = updatedAppWishes.find(
+                    (wish) => wish.id === updatedWish.id,
+                  );
+                  modifyWish.done = updatedWish.done;
+                  setWishes(updatedAppWishes);
+                }}
+              />
+            &lt;/div>
+          &lt;/div>
+        )}
+      &lt;/div>
     &lt;/div>
   );
 }
@@ -85,13 +158,13 @@ export default App;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Nabvar">Nabvar</a></li><li><a href="global.html#WishInput">WishInput</a></li><li><a href="global.html#WishList">WishList</a></li><li><a href="global.html#WishSave">WishSave</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Nov 03 2022 10:56:22 GMT+0100 (hora estándar de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Nov 28 2022 00:08:25 GMT+0100 (hora estándar de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>

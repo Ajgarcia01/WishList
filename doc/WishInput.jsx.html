@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: WishInput.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: WishInput.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useRef, useState } from 'react';
+import { v4 as Uuidv4 } from 'uuid';
+import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Modal from 'react-bootstrap/Modal';
+import './App.css';
+
+/**
+ * Callback para notificar cambios en el input (barra de búsqueda en este caso).
+ * @callback onChange - Callback para notificar cambios en el input y establecer los valores introducidos
+
+ */
+
+/**
+ * Callback para añadir un nuevo deseo
+ * @param {Function} onNewWish - Callback para añadir un nuevo deseo
+ */
+
+
+function WishInput({ onChange, onNewWish }) {
+  const inputText = useRef();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const saveItem = () => onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
+  const save = () => {
+    saveItem();
+    handleClose();
+  };
+
+  return (
+    &lt;>
+      &lt;fieldset>
+        &lt;InputGroup className="">
+          &lt;form className="form">
+            &lt;label className="label" htmlFor="search">
+              &lt;input
+                className="input"
+                type="text"
+                required=""
+                placeholder="Search a item"
+                id="search"
+                onChange={onChange}
+                label="Search"
+              />
+              &lt;div className="fancy-bg" />
+              &lt;div className="search">
+                &lt;svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr"
+                >
+                  &lt;g>
+                    &lt;path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" />
+                  &lt;/g>
+                &lt;/svg>
+              &lt;/div>
+              &lt;Button
+                onClick={handleShow}
+                className="close-btn"
+                variant="link"
+                type="reset"
+              >
+                &lt;i>
+                  &lt;img
+                    src="https://www.freeiconspng.com/uploads/add-icon--icon-search-engine-1.png"
+                    height="30px"
+                    width="30px"
+                    alt=""
+                  />
+                &lt;/i>
+              &lt;/Button>
+            &lt;/label>
+          &lt;/form>
+        &lt;/InputGroup>
+      &lt;/fieldset>
+      &lt;Modal show={show} onHide={handleClose}>
+        &lt;Modal.Header closeButton>
+          &lt;Modal.Title>Añadir Deseo&lt;/Modal.Title>
+        &lt;/Modal.Header>
+        &lt;Modal.Body>
+          &lt;p>Introduce tu deseo para guardar☺️&lt;/p>
+          &lt;Form.Control
+            placeholder="Your wish"
+            aria-describedby="basic-addon2"
+            className="form-control"
+            ref={inputText}
+            type="text"
+            onKeyUp={(event) => {
+              if (event.key === 'Enter' &amp;&amp; inputText.current.value.length > 0) {
+                onNewWish({ id: Uuidv4(), text: inputText.current.value });
+                console.log(`New Wish: ${inputText.current.value}`);
+                inputText.current.value = '';
+                handleClose();
+              }
+            }}
+          />
+        &lt;/Modal.Body>
+        &lt;Modal.Footer>
+          &lt;Button variant="secondary" onClick={handleClose}>
+            Cerrar
+          &lt;/Button>
+          &lt;Button variant="primary" onClick={save}>
+            Guardar Cambios
+          &lt;/Button>
+        &lt;/Modal.Footer>
+      &lt;/Modal>
+    &lt;/>
+  );
+}
+
+WishInput.propTypes = {
+  onChange: PropTypes.func,
+  onNewWish: PropTypes.func,
+};
+
+WishInput.defaultProps = {
+  onNewWish: () => {},
+  onChange: () => {},
+};
+
+export default WishInput;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Nabvar">Nabvar</a></li><li><a href="global.html#WishInput">WishInput</a></li><li><a href="global.html#WishList">WishList</a></li><li><a href="global.html#WishSave">WishSave</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Mon Nov 28 2022 00:08:25 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
