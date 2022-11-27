@@ -53,7 +53,7 @@
     </li>
     <li><a href="#usage">Uso</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact">Contacto</a></li>
     <li><a href="#acknowledgments">Agradecimientos</a></li>
   </ol>
 </details>
@@ -117,14 +117,14 @@ Este proyecto comienza como un proyecto en colaboración con el I.E.S Francisco 
 ## Uso
 
 La aplicación cuenta con las siguientes herramientas:
-* Tenemos un botón en azul con el nombre de guardar el cual nos permite guardar de forma local todos los cambios, en este caso nos basta para guardar si la tarea        registrada esta hecha o no, por lo demás lo cambios se guardarían de forma automática.
-* Contamos con una barra de búsqueda que nos va a permitir buscar las tareas por su nombre, ya sea porque contiene lo escrito en la barra tanto si empieza por dicho conjunto de palabras el termino introducido.
-* Junto a la barra de búsqueda, concretamente en la parte derecha encontramos un boton azul, cuya funcionalidad es añadir deseos a la lista. Este boton nos va a lanzar un modal con un campo de texto en el que tendremos que introducir el nombre del deseo.
-* En cada tarea/deseo tenemos un check, el cual podemos activar o desactivar en funcion de si el deseo esta cumplido o no.
+* Tenemos un `botón en azul` con el nombre de guardar el cual nos permite guardar de forma local todos los cambios, en este caso nos basta para guardar si la tarea        registrada esta hecha o no, por lo demás lo cambios se guardarían de forma automática.
+* Contamos con una `barra de búsqueda` que nos va a permitir buscar las tareas por su nombre, ya sea porque contiene lo escrito en la barra tanto si empieza por dicho conjunto de palabras el termino introducido.
+* Junto a la barra de búsqueda, concretamente en la parte derecha encontramos un `boton azul`, cuya funcionalidad es añadir deseos a la lista. Este boton nos va a lanzar un modal con un campo de texto en el que tendremos que introducir el nombre del deseo.
+* En cada tarea/deseo tenemos un `check`, el cual podemos activar o desactivar en funcion de si el deseo esta cumplido o no.
 * En cada tarea/deseo tenemos el nombre del deseo amompañado de dos botones:
-    * El botón de eliminar basta con pulsarlo para eliminar ese deseo en concreto.
-    * El botón de editar se nos abrirá un modal con el texto actual del deseo, el cual podemos editarlo entero o añadir nuevo texto al ya existente.   
-! [Funcionalidades] (https://i.postimg.cc/XYrYwPWH/imagen.png)
+    * El `botón de eliminar` basta con pulsarlo para eliminar ese deseo en concreto.
+    * El `botón de editar` se nos abrirá un modal con el texto actual del deseo, el cual podemos editarlo entero o añadir nuevo texto al ya existente.   
+! [Funcionalidades](https://i.postimg.cc/XYrYwPWH/imagen.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,7 +132,7 @@ La aplicación cuenta con las siguientes herramientas:
 
 
 <!-- LICENSE -->
-## License
+## Licencia
 
 Distribuida por GNU General Public License v3.0. Ver `LICENSE.md` para mas información.
 
@@ -169,7 +169,6 @@ Use this space to list resources you find helpful and would like to give credit 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/Ajgarcia01/WishList/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
