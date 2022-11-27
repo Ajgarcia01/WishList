@@ -22,8 +22,7 @@ import './App.css';
  */
 
 function WishList({ props, ChangeWish }) {
-  const wishesArray =
-    JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+  const wishesArray = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 
   const [wishesItems, setWishesItems] = React.useState(wishesArray);
   const dragItem = React.useRef(null);

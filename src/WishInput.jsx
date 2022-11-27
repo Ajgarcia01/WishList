@@ -12,8 +12,7 @@ function WishInput({ onChange, onNewWish }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const saveItem = () =>
-    onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
+  const saveItem = () => onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
   const save = () => {
     saveItem();
     handleClose();

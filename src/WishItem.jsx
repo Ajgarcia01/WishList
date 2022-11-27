@@ -42,6 +42,16 @@ function WishItem({ wish, onChangeWish }) {
       <table size="sm" className="tableItem">
         <thead>
           <tr>
+            <td>
+              <div className="menuIcon">
+                <i>
+                  <img
+                    src="https://www.svgrepo.com/show/18576/menu.svg"
+                    alt=""
+                  />
+                </i>
+              </div>
+            </td>
             <td className="list-group-item wishItem ">
               <label className="container">
                 <input

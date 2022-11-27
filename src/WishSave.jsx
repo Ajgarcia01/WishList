@@ -14,7 +14,7 @@ import './App.css';
 function WishSave({ onWishesSave }) {
   return (
     <button className="button" type="button" onClick={onWishesSave}>
-      <span>Save</span>
+      <span>Guardar</span>
     </button>
   );
 }

@@ -18,8 +18,7 @@ function App() {
     setInputText(lowerCase);
   };
 
-  const initialWishes =
-    JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+  const initialWishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 
   const [appWishes, setWishes] = useState(initialWishes);
   const [loading, setLoading] = useState(false);
@@ -54,7 +53,7 @@ function App() {
                   onWishesSave={() => {
                     localStorage.setItem(
                       'wishesLocalStorage',
-                      JSON.stringify(appWishes)
+                      JSON.stringify(appWishes),
                     );
                     window.location.reload();
                   }}
@@ -68,17 +67,18 @@ function App() {
                   initialWishes.push(newwish);
                   localStorage.setItem(
                     'wishesLocalStorage',
-                    JSON.stringify(initialWishes)
+                    JSON.stringify(initialWishes),
                   );
                 }}
-              />{' '}
+              />
+              {' '}
               <br />
               <WishList
                 props={inputText}
                 ChangeWish={(updatedWish) => {
                   const updatedAppWishes = [...appWishes];
                   const modifyWish = updatedAppWishes.find(
-                    (wish) => wish.id === updatedWish.id
+                    (wish) => wish.id === updatedWish.id,
                   );
                   modifyWish.done = updatedWish.done;
                   setWishes(updatedAppWishes);
