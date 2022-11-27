@@ -63,24 +63,21 @@
 <!-- ABOUT THE PROJECT -->
 ## Sobre El Proyecto
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Este proyecto de REACT, se condiera un trabajo con el fin de crear deseos, administrarlos, editarlos y llevar un control exahusto de los mismos. Proyecto que garantiza la administración y la organización de tareas, trabajos, etc..
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Porques debes utilizarlo?:
+* Te ahorrá tiempo.
+* Mejorará tu organización.
+* Lo tendrás todo al día.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+Por supuesto, hay muchas herramientas que desarollan esta actividad, pero esta particularmente esta desarollada desde el principio de aprendizaje de un framework como es REACT, el cúal permite el trabajo simúltaneo con componentes y hacernos crear aplicaciones como la desarollada aquí.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 ### Desarrollado con:
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+En esta sección se resumen un poco las tecnologías, lenguajes y framework que se han utilizado para el desarollo de la app. Destaca `REACT` ya que es el framework que se ha utilizado y `JAVASCRIPT` ya que es el lenguaje en el que esta creado. Para el tema de estructura y diseño se ha utilizado `HTML` para el tema de estrcutura y `CSS` para el tema de diseño, además del acompañar cierto diseño con la libreria `Bootstrap`.
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
@@ -95,20 +92,13 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Comienzo
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Este proyecto comienza como un proyecto en colaboración con el I.E.S Francisco De los Ríos, para el aprendizaje de una tecnología en auge como es REACT.
 
 ### Requisitos
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Tener instalado en tu equipo `NPM` (ya que si no no habría otra forma de instalar el proyecto ademas de poder usarlo)
 
 ### Instalación
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+* Seguir los siguientes pasos:
 
 1. Clonar el repositorio
    ```sh
@@ -126,9 +116,15 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+La aplicación cuenta con las siguientes herramientas:
+* Tenemos un botón en azul con el nombre de guardar el cual nos permite guardar de forma local todos los cambios, en este caso nos basta para guardar si la tarea        registrada esta hecha o no, por lo demás lo cambios se guardarían de forma automática.
+* Contamos con una barra de búsqueda que nos va a permitir buscar las tareas por su nombre, ya sea porque contiene lo escrito en la barra tanto si empieza por dicho conjunto de palabras el termino introducido.
+* Junto a la barra de búsqueda, concretamente en la parte derecha encontramos un boton azul, cuya funcionalidad es añadir deseos a la lista. Este boton nos va a lanzar un modal con un campo de texto en el que tendremos que introducir el nombre del deseo.
+* En cada tarea/deseo tenemos un check, el cual podemos activar o desactivar en funcion de si el deseo esta cumplido o no.
+* En cada tarea/deseo tenemos el nombre del deseo amompañado de dos botones:
+    * El botón de eliminar basta con pulsarlo para eliminar ese deseo en concreto.
+    * El botón de editar se nos abrirá un modal con el texto actual del deseo, el cual podemos editarlo entero o añadir nuevo texto al ya existente.   
+! [Funcionalidades] (https://i.postimg.cc/XYrYwPWH/imagen.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +134,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distribuida por GNU General Public License v3.0. Ver `LICENSE.md` para mas información.
 
 <p align="right">(<a href="#readme-top">volver hacia arriba</a>)</p>
 
@@ -147,9 +143,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contacto
 
-Your Name - [@your_twitter](https://twitter.com/jgl_11) - email@example.com
+Jesús García Luque -  - jesusgarcialuque11@gmail.com
 
-Project Link: [https://github.com/Ajgarcia01/WishList](https://github.com/Ajgarcia01/WishList)
+Projecto Link: [https://github.com/Ajgarcia01/WishList](https://github.com/Ajgarcia01/WishList)
 
 <p align="right">(<a href="#readme-top">volver hacia arriba</a>)</p>
 
@@ -160,15 +156,14 @@ Project Link: [https://github.com/Ajgarcia01/WishList](https://github.com/Ajgarc
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Elige una Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
-
+* [IES Franciso de los rios](https://www.iesfranciscodelosrios.es)
+* [React-Bootstrap](https://react-bootstrap.github.io)
+* [Drap and Drog](https://github.com/thebikashweb/react-drag-drop-without-library)
 <p align="right">(<a href="#readme-top">volver hacia arriba</a>)</p>
 
 
@@ -184,23 +179,10 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
 [issues-url]: https://github.com/Ajgarcia01/WishList/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/Ajgarcia01/WishList/blob/master/LICENSE.txt
+[license-url]: https://github.com/Ajgarcia01/WishList/blob/main/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jgl11
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
