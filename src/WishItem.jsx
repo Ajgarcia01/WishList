@@ -15,7 +15,6 @@ import Form from 'react-bootstrap/Form';
  * @param {onChangeWish} callback - Callback para cuando un deseo es modificado
  */
 
-
 /**
  * Callback para cuando un deseo es modificado
  * @callback onChangeWish - Callback para cuando un deseo es modificado
@@ -25,32 +24,30 @@ import Form from 'react-bootstrap/Form';
  * @param {Boolean} updatedWish.done - Estado del deseo
  */
 
-
-
 function WishItem({ wish, onChangeWish }) {
-/**
- * Controla el texto introducido en el input
- * @returns texto en String
- */
+  /**
+   * Controla el texto introducido en el input
+   * @returns texto en String
+   */
   const inputText = useRef();
-/**
- * Controla la lista de deseos
- * @returns JSON con la lista de deseos almacenadas en el LocalStorage
- */
+  /**
+   * Controla la lista de deseos
+   * @returns JSON con la lista de deseos almacenadas en el LocalStorage
+   */
   const wishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
-/**
- * Controla los modales de la app
- * @returns un modal cada vez que show es === (true)
- */
+  /**
+   * Controla los modales de la app
+   * @returns un modal cada vez que show es === (true)
+   */
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-/**
- * Controla el eliminar un deseo
- * @returns deseo eliminado (id en concreto)
- * @param {String} data - texto editado del deseo 
- */
+  /**
+   * Controla el eliminar un deseo
+   * @returns deseo eliminado (id en concreto)
+   * @param {String} data - texto editado del deseo
+   */
   const deleteItem = (data) => {
     for (let i = 0; i < wishes.length; i += 1) {
       if (wishes[i].id === data) {
@@ -63,12 +60,12 @@ function WishItem({ wish, onChangeWish }) {
     // console.log(filterItem);
   };
 
-/**
- * Controla el editar un deseo
- * @returns deseo actualizado
- * @param {Object} data - deseo seleccionado
- * @param {String} text - texto editado del deseo 
- */
+  /**
+   * Controla el editar un deseo
+   * @returns deseo actualizado
+   * @param {Object} data - deseo seleccionado
+   * @param {String} text - texto editado del deseo
+   */
   const editItem = (data, text) => {
     console.log(text);
     for (let i = 0; i < wishes.length; i += 1) {

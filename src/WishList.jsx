@@ -23,26 +23,27 @@ import './App.css';
  */
 
 function WishList({ props, ChangeWish }) {
-/**
- * Controla la lista de deseos
- * @returns JSON con la lista de deseos almacenadas en el LocalStorage
- */
-  const wishesArray = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
-/**
- * Controla la lista de deseos 
- * @returns una lista de deseos, que es seteada con setWishesItems
- */
+  /**
+   * Controla la lista de deseos
+   * @returns JSON con la lista de deseos almacenadas en el LocalStorage
+   */
+  const wishesArray =
+    JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+  /**
+   * Controla la lista de deseos
+   * @returns una lista de deseos, que es seteada con setWishesItems
+   */
   const [wishesItems, setWishesItems] = React.useState(wishesArray);
-/**
- * Controla el elemento arrastrado y sobre el que se arrastra
- * @returns un elemento arrastrado 
- */
+  /**
+   * Controla el elemento arrastrado y sobre el que se arrastra
+   * @returns un elemento arrastrado
+   */
   const dragItem = React.useRef(null);
   const dragOverItem = React.useRef(null);
-/**
- * Controla la lista de deseos filtrados con la barra de búsqueda
- * @returns lista de deseos filtrados con la barra de búsqueda
- */
+  /**
+   * Controla la lista de deseos filtrados con la barra de búsqueda
+   * @returns lista de deseos filtrados con la barra de búsqueda
+   */
   const filteredData = wishesArray.filter((el) => {
     if (props === '') {
       return el;

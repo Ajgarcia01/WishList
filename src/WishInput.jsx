@@ -18,13 +18,13 @@ import './App.css';
  * @param {Function} onNewWish - Callback para añadir un nuevo deseo
  */
 
-
 function WishInput({ onChange, onNewWish }) {
   const inputText = useRef();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const saveItem = () => onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
+  const saveItem = () =>
+    onNewWish({ id: Uuidv4(), text: inputText.current.value, done: false });
   const save = () => {
     saveItem();
     handleClose();
