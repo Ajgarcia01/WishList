@@ -41,7 +41,6 @@ function WishItem({ wish, onChangeWish }) {
     <>
       <table size="sm" className="tableItem">
         <thead>
-
           <tr>
             <td className="list-group-item wishItem ">
               <label className="container">
@@ -67,18 +66,37 @@ function WishItem({ wish, onChangeWish }) {
                 {wish.text}
               </label>
             </td>
-            <td><center><Button className="butttonEdit" variant="primary" onClick={handleShow}>Edit</Button></center></td>
-            <td><center><Button variant="danger" onClick={((e) => deleteItem(wish.id, e))}>Delete</Button></center></td>
+            <td>
+              <center>
+                <Button
+                  className="butttonEdit"
+                  variant="primary"
+                  onClick={handleShow}
+                >
+                  Edit
+                </Button>
+              </center>
+            </td>
+            <td>
+              <center>
+                <Button
+                  variant="danger"
+                  onClick={(e) => deleteItem(wish.id, e)}
+                >
+                  Delete
+                </Button>
+              </center>
+            </td>
           </tr>
         </thead>
       </table>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Wish</Modal.Title>
+          <Modal.Title>Editar Deseo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>Introduce a new value or modify the current value☺️</p>
+          <p>Introduce un nuevo valor o modifica el valor actual☺️</p>
           <Form.Control
             placeholder="Your wish"
             aria-describedby="basic-addon2"
@@ -97,10 +115,13 @@ function WishItem({ wish, onChangeWish }) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            Cerrar
           </Button>
-          <Button variant="primary" onClick={((e) => editItem(wish.id, inputText.current.value, e))}>
-            Save Changes
+          <Button
+            variant="primary"
+            onClick={(e) => editItem(wish.id, inputText.current.value, e)}
+          >
+            Guardar Cambios
           </Button>
         </Modal.Footer>
       </Modal>
@@ -109,19 +130,17 @@ function WishItem({ wish, onChangeWish }) {
 }
 
 WishItem.propTypes = {
-  wish:
-    PropTypes.shape({
-      id: PropTypes.string,
-      text: PropTypes.string,
-      done: PropTypes.bool,
-    }),
+  wish: PropTypes.shape({
+    id: PropTypes.string,
+    text: PropTypes.string,
+    done: PropTypes.bool,
+  }),
   onChangeWish: PropTypes.func,
 };
 
 WishItem.defaultProps = {
   wish: { id: '', done: false, text: '' },
   onChangeWish: () => {},
-
 };
 
 export default WishItem;

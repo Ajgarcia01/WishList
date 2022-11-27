@@ -22,9 +22,10 @@ import './App.css';
  */
 
 function WishList({ props, ChangeWish }) {
-  const wishesArray = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+  const wishesArray =
+    JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 
-  const [fruitItems, setFruitItems] = React.useState(wishesArray);
+  const [wishesItems, setWishesItems] = React.useState(wishesArray);
   const dragItem = React.useRef(null);
   const dragOverItem = React.useRef(null);
 
@@ -37,7 +38,7 @@ function WishList({ props, ChangeWish }) {
 
   // const handle drag sorting
   const handleSort = () => {
-    console.log(fruitItems);
+    console.log(wishesItems);
     // duplicate items
     const duplicateWishes = [...filteredData];
 
@@ -52,19 +53,18 @@ function WishList({ props, ChangeWish }) {
     dragOverItem.current = null;
 
     // update the actual array
-    setFruitItems(duplicateWishes);
+    setWishesItems(duplicateWishes);
     localStorage.setItem('wishesLocalStorage', JSON.stringify(duplicateWishes));
   };
 
   return (
-
     <div>
       <Table striped bordered hover size="sm" className="table">
         {filteredData.map(({ id, text, done }, index) => (
           <>
             <thead>
               <tr>
-                <th className="columnaWish">A Wish </th>
+                <th className="columnaWish">Deseo </th>
               </tr>
             </thead>
             <tbody>
@@ -105,7 +105,6 @@ WishList.propTypes = {
 };
 
 WishList.defaultProps = {
-
   ChangeWish: () => {},
 };
 

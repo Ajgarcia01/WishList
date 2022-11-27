@@ -14,14 +14,12 @@ import WishSave from './WishSave';
 function App() {
   const [inputText, setInputText] = useState('');
   const inputHandler = (e) => {
-    // convert input text to lower case
     const lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };
-    // const students = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
-  // const [appWishes,setWishes] = useState(initialWishes)
 
-  const initialWishes = JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
+  const initialWishes =
+    JSON.parse(localStorage.getItem('wishesLocalStorage')) || [];
 
   const [appWishes, setWishes] = useState(initialWishes);
   const [loading, setLoading] = useState(false);
@@ -46,7 +44,6 @@ function App() {
             <span>N</span>
             <span>G</span>
           </div>
-
         ) : (
           <div>
             <div className="search" />
@@ -55,30 +52,33 @@ function App() {
               <center>
                 <WishSave
                   onWishesSave={() => {
-                    console.log('Saving wishes...');
-                    localStorage.setItem('wishesLocalStorage', JSON.stringify(appWishes));
+                    localStorage.setItem(
+                      'wishesLocalStorage',
+                      JSON.stringify(appWishes)
+                    );
                     window.location.reload();
                   }}
                 />
               </center>
-
               <h1 className="text-title">My WishList</h1>
               <WishInput
                 onChange={inputHandler}
                 onNewWish={(newwish) => {
                   setWishes([...initialWishes, newwish]);
                   initialWishes.push(newwish);
-                  localStorage.setItem('wishesLocalStorage', JSON.stringify(initialWishes));
+                  localStorage.setItem(
+                    'wishesLocalStorage',
+                    JSON.stringify(initialWishes)
+                  );
                 }}
-              />
-              {' '}
+              />{' '}
               <br />
               <WishList
                 props={inputText}
                 ChangeWish={(updatedWish) => {
                   const updatedAppWishes = [...appWishes];
                   const modifyWish = updatedAppWishes.find(
-                    (wish) => wish.id === updatedWish.id,
+                    (wish) => wish.id === updatedWish.id
                   );
                   modifyWish.done = updatedWish.done;
                   setWishes(updatedAppWishes);
@@ -86,7 +86,6 @@ function App() {
               />
             </div>
           </div>
-
         )}
       </div>
     </div>

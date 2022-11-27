@@ -1,350 +1,328 @@
 #root {
-
 }
 
-
-
-body{
-  
-    background-color: rgb(1, 2, 43);
-    
+body {
+  background-color: rgb(1, 2, 43);
 }
 
-
-
-
-.textWish{
-    color: white;
-    font-size: 25px;
-    margin-right: 50px;
-
+.textWish {
+  color: white;
+  font-size: 25px;
+  margin-right: 50px;
 }
-.text-title{
-    color: white;
+.text-title {
+  color: white;
 }
 
-.logovar{
-    margin-top: 7px;
-    margin-bottom: 7px;
-    margin-left: 585px;
-
+.logovar {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  margin-left: 585px;
 }
 
-.butttonEdit{
-    margin-right: 0px;
-
+.butttonEdit {
+  margin-right: 0px;
 }
-.columnaWish{
-    text-align: center;
-}
-
-
-.tableItem{
-    overflow-x:auto;
-    color: #1b9bee;
-    margin-left: 200px;
+.columnaWish {
+  text-align: center;
 }
 
-.tableItem td{
-    margin-right: 50px;
+.tableItem {
+  overflow-x: auto;
+  color: #1b9bee;
+  margin-left: 200px;
 }
 
-.table{
-    color: white;
-    overflow-x:auto
+.tableItem td {
+  margin-right: 50px;
 }
 
-
-.app{
-    margin-top: 50px;
+.table {
+  color: white;
+  overflow-x: auto;
 }
 
-
-.table td{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-
+.app {
+  margin-top: 50px;
 }
 
-.prueba{
-    background-color: green;
+.table td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-.textitem{
-    margin-top: 12px;
-    color: white;
+.prueba {
+  background-color: green;
+}
+
+.textitem {
+  margin-top: 12px;
+  color: white;
 }
 
 .form {
-    --input-text-color: #fff;
-    --input-bg-color: #283542;
-    --focus-input-bg-color: transparent;
-    --text-color: #949faa;
-    --active-color: #1b9bee;
-    --width-of-input: 1310px;
-    --inline-padding-of-input: 1.2em;
-    --gap: 0.9rem;
-    margin-right: 10px;
-  }
-  
-  
-  .form {
-    font-size: 0.9rem;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    width: var(--width-of-input);
-    position: relative;
-    isolation: isolate;
-  }
-  
-  
-  .fancy-bg {
-    position: absolute;
-    width: 100%;
-    inset: 0;
-    background: var(--input-bg-color);
-    border-radius: 30px;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  }
-  
-  .label {
-    width: 100%;
-    padding: 0.8em;
-    height: 40px;
-    padding-inline: var(--inline-padding-of-input);
-    display: flex;
-    align-items: center;
-  }
-  
-  .search,.close-btn {
-    position: absolute;
-  }
-  
-  .search {
-    fill: var(--text-color);
-    left: var(--inline-padding-of-input);
-  }
-  /* svg -- size */
-  svg {
-    width: 17px;
-    display: block;
-  }
-  
-  
-  .input {
-    color: var(--input-text-color);
-    width: 100%;
-    margin-inline: min(2em,calc(var(--inline-padding-of-input) + var(--gap)));
-    background: none;
-    border: none;
-  }
-  
-  .input:focus {
-    outline: none;
-  }
-  
-  .input::placeholder {
-    color: var(--text-color)
-  }
-  
-  .input:focus ~ .fancy-bg {
-    border: 1px solid var(--active-color);
-    background: var(--focus-input-bg-color);
-  }
-  
-  .input:focus ~ .search {
-    fill: var(--active-color);
-  }
-  
-  .input:valid ~ .close-btn {
-    opacity: 1;
-    visibility: visible;
+  --input-text-color: #fff;
+  --input-bg-color: #283542;
+  --focus-input-bg-color: transparent;
+  --text-color: #949faa;
+  --active-color: #1b9bee;
+  --width-of-input: 1310px;
+  --inline-padding-of-input: 1.2em;
+  --gap: 0.9rem;
+  margin-right: 10px;
+}
+
+.form {
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: var(--width-of-input);
+  position: relative;
+  isolation: isolate;
+}
+
+.fancy-bg {
+  position: absolute;
+  width: 100%;
+  inset: 0;
+  background: var(--input-bg-color);
+  border-radius: 30px;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.label {
+  width: 100%;
+  padding: 0.8em;
+  height: 40px;
+  padding-inline: var(--inline-padding-of-input);
+  display: flex;
+  align-items: center;
+}
+
+.search,
+.close-btn {
+  position: absolute;
+}
+
+.search {
+  fill: var(--text-color);
+  left: var(--inline-padding-of-input);
+}
+/* svg -- size */
+svg {
+  width: 17px;
+  display: block;
+}
+
+.input {
+  color: var(--input-text-color);
+  width: 100%;
+  margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+  background: none;
+  border: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--text-color);
+}
+
+.input:focus ~ .fancy-bg {
+  border: 1px solid var(--active-color);
+  background: var(--focus-input-bg-color);
+}
+
+.input:focus ~ .search {
+  fill: var(--active-color);
+}
+
+.input:valid ~ .close-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.img {
+  display: block;
+}
+/* styling of close button */
+.close-btn {
+  border: none;
+  right: var(--inline-padding-of-input);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--active-color);
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Hide the default checkbox */
+
+.containerinput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  box-shadow: 0px 0px 17px #c7bbb8;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #0095ff;
+  box-shadow: 0px 0px 17px #00d5ff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid rgb(233, 222, 222);
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+.button {
+  display: inline-block;
+  border-radius: 7px;
+  border: none;
+  background: #0095ff;
+  color: white;
+  font-family: inherit;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0px 14px 56px -11px #00d5ff;
+  width: 10em;
+  padding: 1em;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+.button span:after {
+  content: 'Thank :)';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+
+.button:hover span {
+  padding-right: 3.55em;
+}
+
+.button:hover span:after {
+  opacity: 4;
+  right: 0;
+}
+
+.spinner {
+  margin-top: 450px;
+  margin-left: 600px;
+  height: 50px;
+  width: max-content;
+  font-size: 80px;
+  font-weight: 600;
+  font-family: monospace;
+  letter-spacing: 1em;
+  color: #00d5ff;
+  filter: drop-shadow(0 0 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner span {
+  animation: loading6454 1.75s ease infinite;
+}
+
+.spinner span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.spinner span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.spinner span:nth-child(4) {
+  animation-delay: 0.75s;
+}
+
+.spinner span:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.spinner span:nth-child(6) {
+  animation-delay: 1.25s;
+}
+
+.spinner span:nth-child(7) {
+  animation-delay: 1.5s;
+}
+
+@keyframes loading6454 {
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  .img {
-    display: block;
+  50% {
+    transform: translateY(-10px);
   }
-  /* styling of close button */
-  .close-btn {
-    border: none;
-    right: var(--inline-padding-of-input);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    padding: 0.1em;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--active-color);
-    opacity: 0;
-    visibility: hidden;
-  }
-  
-
-  /* Hide the default checkbox */
-
-  .containerinput {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-   }
-
-   .container {
-    display: block;
-    position: relative;
-    cursor: pointer;
-    font-size: 20px;
-    user-select: none;
-   }
-   
-   /* Create a custom checkbox */
-   .checkmark {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 1.3em;
-    width: 1.3em;
-    background-color: #ccc;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    box-shadow: 0px 0px 17px #c7bbb8;
-   }
-   
-   /* When the checkbox is checked, add a blue background */
-   .container input:checked ~ .checkmark {
-    background-color: #0095ff;
-    box-shadow: 0px 0px 17px #00d5ff;
-   }
-   
-   /* Create the checkmark/indicator (hidden when not checked) */
-   .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-   }
-   
-   /* Show the checkmark when checked */
-   .container input:checked ~ .checkmark:after {
-    display: block;
-   }
-   
-   /* Style the checkmark/indicator */
-   .container .checkmark:after {
-    left: 0.45em;
-    top: 0.25em;
-    width: 0.25em;
-    height: 0.5em;
-    border: solid rgb(233, 222, 222);
-    border-width: 0 0.15em 0.15em 0;
-    transform: rotate(45deg);
-   }
-  
-
-
-   .button {
-    display: inline-block;
-    border-radius: 7px;
-    border: none;
-    background: #0095ff;
-    color: white;
-    font-family: inherit;
-    text-align: center;
-    font-size: 13px;
-    box-shadow: 0px 14px 56px -11px #00d5ff;
-    width: 10em;
-    padding: 1em;
-    transition: all 0.4s;
-    cursor: pointer;
-   }
-   
-   .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.3s;
-   }
-   
-   .button span:after {
-    content: 'Thank :)';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.3s;
-   }
-   
-   .button:hover span {
-    padding-right: 3.55em;
-   }
-   
-   .button:hover span:after {
-    opacity: 4;
-    right: 0;
-   }
-
-
-
-   .spinner {
-    margin-top: 450px;
-    margin-left: 600px;
-    height: 50px;
-    width: max-content;
-    font-size: 80px;
-    font-weight: 600;
-    font-family: monospace;
-    letter-spacing: 1em;
-    color: #00d5ff;
-    filter: drop-shadow(0 0 10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   }
-   
-   .spinner span {
-    animation: loading6454 1.75s ease infinite;
-   }
-   
-   .spinner span:nth-child(2) {
-    animation-delay: 0.25s;
-   }
-   
-   .spinner span:nth-child(3) {
-    animation-delay: 0.5s;
-   }
-   
-   .spinner span:nth-child(4) {
-    animation-delay: 0.75s;
-   }
-   
-   .spinner span:nth-child(5) {
-    animation-delay: 1s;
-   }
-   
-   .spinner span:nth-child(6) {
-    animation-delay: 1.25s;
-   }
-   
-   .spinner span:nth-child(7) {
-    animation-delay: 1.5s;
-   }
-   
-   @keyframes loading6454 {
-    0%, 100% {
-     transform: translateY(0);
-    }
-   
-    50% {
-     transform: translateY(-10px);
-    }
-   }
-
+}

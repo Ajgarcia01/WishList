@@ -12,13 +12,11 @@ export function Nabvar() {
             width="40"
             height="40"
             alt="hi from Wishes Team"
-          />
-          {' '}
+          />{' '}
           WishList
         </Navbar.Brand>
       </Container>
     </Navbar>
-
   );
 }
 
