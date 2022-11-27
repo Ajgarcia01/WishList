@@ -29,30 +29,31 @@ function WishList({ props, ChangeWish }) {
   const dragOverItem = React.useRef(null);
 
   const filteredData = wishesArray.filter((el) => {
-    if (props.input === '') {
-    } else {
-      return el.text.toLowerCase().includes(props);
+    if (props === '') {
+      return el;
     }
+    return el.text.toLowerCase().includes(props);
   });
 
   // const handle drag sorting
   const handleSort = () => {
+    console.log(fruitItems);
     // duplicate items
-    const _fruitItems = [...filteredData];
+    const duplicateWishes = [...filteredData];
 
     // remove and save the dragged item content
-    const draggedItemContent = _fruitItems.splice(dragItem.current, 1)[0];
+    const draggedItemContent = duplicateWishes.splice(dragItem.current, 1)[0];
 
     // switch the position
-    _fruitItems.splice(dragOverItem.current, 0, draggedItemContent);
+    duplicateWishes.splice(dragOverItem.current, 0, draggedItemContent);
 
     // reset the position ref
     dragItem.current = null;
     dragOverItem.current = null;
 
     // update the actual array
-    setFruitItems(_fruitItems);
-    localStorage.setItem('wishesLocalStorage', JSON.stringify(_fruitItems));
+    setFruitItems(duplicateWishes);
+    localStorage.setItem('wishesLocalStorage', JSON.stringify(duplicateWishes));
   };
 
   return (

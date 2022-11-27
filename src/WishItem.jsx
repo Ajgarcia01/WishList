@@ -44,7 +44,7 @@ function WishItem({ wish, onChangeWish }) {
 
           <tr>
             <td className="list-group-item wishItem ">
-              <div className="container">
+              <label className="container">
                 <input
                   className="containerinput"
                   type="checkbox"
@@ -60,7 +60,7 @@ function WishItem({ wish, onChangeWish }) {
                   }}
                 />
                 <div className="checkmark" />
-              </div>
+              </label>
             </td>
             <td>
               <label htmlFor={wish.id} className="textWish">
@@ -111,9 +111,9 @@ function WishItem({ wish, onChangeWish }) {
 WishItem.propTypes = {
   wish:
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      done: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired,
+      id: PropTypes.string,
+      text: PropTypes.string,
+      done: PropTypes.bool,
     }),
   onChangeWish: PropTypes.func,
 };

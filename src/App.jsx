@@ -57,6 +57,7 @@ function App() {
                   onWishesSave={() => {
                     console.log('Saving wishes...');
                     localStorage.setItem('wishesLocalStorage', JSON.stringify(appWishes));
+                    window.location.reload();
                   }}
                 />
               </center>
