@@ -127,7 +127,7 @@ function WishItem({ wish, onChangeWish }) {
                   variant="primary"
                   onClick={handleShow}
                 >
-                  Edit
+                  Editar
                 </Button>
               </center>
             </td>
@@ -137,7 +137,7 @@ function WishItem({ wish, onChangeWish }) {
                   variant="danger"
                   onClick={(e) => deleteItem(wish.id, e)}
                 >
-                  Delete
+                  Eliminar
                 </Button>
               </center>
             </td>

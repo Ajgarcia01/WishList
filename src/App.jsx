@@ -86,7 +86,7 @@ function App() {
                   }}
                 />
               </center>
-              <h1 className="text-title">My WishList</h1>
+              <h1 className="text-title">Mi lista de deseos</h1>
               <WishInput
                 onChange={inputHandler}
                 onNewWish={(newwish) => {
