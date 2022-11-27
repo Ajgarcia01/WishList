@@ -7,7 +7,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-<!-- <a target="_blank" href="https://www.linkedin.com/in/absphreak/">🇱​🇮​🇳​🇰​🇪​🇩​🇮​🇳​</a> ●
 
 
 
@@ -124,7 +123,10 @@ La aplicación cuenta con las siguientes herramientas:
 * En cada tarea/deseo tenemos el nombre del deseo amompañado de dos botones:
     * El `botón de eliminar` basta con pulsarlo para eliminar ese deseo en concreto.
     * El `botón de editar` se nos abrirá un modal con el texto actual del deseo, el cual podemos editarlo entero o añadir nuevo texto al ya existente.   
-! [Funcionalidades](https://i.postimg.cc/XYrYwPWH/imagen.png)
+
+<p align="center">
+  <img src="https://i.postimg.cc/XYrYwPWH/imagen.png" title="hover text">
+</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,9 +145,11 @@ Distribuida por GNU General Public License v3.0. Ver `LICENSE.md` para mas infor
 <!-- CONTACT -->
 ## Contacto
 
-Jesús García Luque -  - jesusgarcialuque11@gmail.com
+Jesús García Luque - jesusgarcialuque11@gmail.com
 
 Projecto Link: [https://github.com/Ajgarcia01/WishList](https://github.com/Ajgarcia01/WishList)
+
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <p align="right">(<a href="#readme-top">volver hacia arriba</a>)</p>
 
