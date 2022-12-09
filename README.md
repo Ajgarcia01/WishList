@@ -158,8 +158,6 @@ Projecto Link: [https://github.com/Ajgarcia01/WishList](https://github.com/Ajgar
 <!-- ACKNOWLEDGMENTS -->
 ## Agradecimientos
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [Elige una Open Source License](https://choosealicense.com)
 * [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
